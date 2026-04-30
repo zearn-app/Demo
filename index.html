@@ -1,217 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Hero 💚</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Hero Time!</title>
+    <style>
+        :root {
+            --ben-green: #39FF14;
+            --dark-gray: #1a1a1a;
+            --deep-black: #000000;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--deep-black);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+        /* Background Circuit Animation */
+        .background-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #1a3a1a 0%, #000 80%);
+            z-index: -1;
+            opacity: 0.5;
+        }
 
-body {
-  background: radial-gradient(circle at center, #0f0f0f, #000);
-  overflow: hidden;
-  color: white;
-}
+        /* The Omnitrix Interface */
+        .container {
+            text-align: center;
+            border: 4px solid var(--ben-green);
+            padding: 40px;
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 50px var(--ben-green), inset 0 0 30px var(--ben-green);
+            background: rgba(0, 0, 0, 0.8);
+            position: relative;
+            animation: pulse 2s infinite ease-in-out;
+        }
 
-/* Background particles */
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px var(--ben-green); }
+            50% { transform: scale(1.02); box-shadow: 0 0 70px var(--ben-green); }
+        }
 
-/* Center Content */
-.container {
-  position: relative;
-  z-index: 2;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
+        h1 {
+            color: var(--ben-green);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 0 10px var(--ben-green);
+            letter-spacing: 5px;
+        }
 
-/* Glowing Title */
-h1 {
-  font-size: 2.5rem;
-  color: #00ff88;
-  text-shadow: 0 0 20px #00ff88;
-  animation: glow 2s infinite alternate;
-}
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: 1s ease-in;
+        }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px #00ff88; }
-  to { text-shadow: 0 0 30px #00ff88; }
-}
+        /* DNA Loader Animation */
+        .dna-scanner {
+            width: 100%;
+            height: 4px;
+            background: var(--ben-green);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            box-shadow: 0 0 15px var(--ben-green);
+            animation: scan 3s infinite linear;
+        }
 
-/* Omnitrix Circle */
-.omnitrix {
-  width: 150px;
-  height: 150px;
-  border: 6px solid #00ff88;
-  border-radius: 50%;
-  margin: 20px 0;
-  position: relative;
-  box-shadow: 0 0 25px #00ff88;
-  animation: rotate 6s linear infinite;
-}
+        @keyframes scan {
+            0% { top: 10%; }
+            50% { top: 90%; }
+            100% { top: 10%; }
+        }
 
-.omnitrix::before {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background: #00ff88;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+        button {
+            background: var(--ben-green);
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 5px;
+            transition: 0.3s;
+            z-index: 10;
+        }
 
-@keyframes rotate {
-  100% { transform: rotate(360deg); }
-}
+        button:hover {
+            background: white;
+            box-shadow: 0 0 20px white;
+            transform: scale(1.1);
+        }
 
-/* Message */
-.message {
-  max-width: 300px;
-  font-size: 1rem;
-  opacity: 0;
-  animation: fadeIn 2s ease forwards;
-  animation-delay: 2s;
-}
+        /* Floating Alien Silhouettes */
+        .alien-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 6s infinite linear;
+        }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
 
-/* Button */
-button {
-  margin-top: 20px;
-  padding: 10px 25px;
-  border: none;
-  background: #00ff88;
-  color: black;
-  font-weight: bold;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px #00ff88;
-}
-
-/* Popup */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.popup.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.popup h2 {
-  color: #00ff88;
-  font-size: 2rem;
-  animation: glow 2s infinite alternate;
-}
-
-</style>
+    </style>
 </head>
-
 <body>
 
-<canvas id="bg"></canvas>
+    <div class="background-lines"></div>
+    
+    <div class="container" id="mainContainer">
+        <div class="dna-scanner"></div>
+        <h1 id="title">BEN 10</h1>
+        <p id="sub">DNA IDENTIFIED: BIRTHDAY BOY</p>
+        
+        <div class="message" id="wish">
+            HAPPY BIRTHDAY!<br>
+            <span style="font-size: 1.5rem;">IT'S HERO TIME!</span>
+        </div>
 
-<div class="container">
-  <h1>Happy Birthday Hero 💚</h1>
+        <button onclick="transform()">ACTIVATE OMNITRIX</button>
+    </div>
 
-  <div class="omnitrix"></div>
+    <script>
+        function transform() {
+            const wish = document.getElementById('wish');
+            const container = document.getElementById('mainContainer');
+            const title = document.getElementById('title');
+            
+            // Sound effect (Optional: replace with actual URL)
+            const audio = new Audio('https://www.soundjay.com/buttons/sounds/button-10.mp3');
+            audio.play();
 
-  <p class="message">
-    You are just like Ben 10 — strong, fearless, and always saving the day! 💥  
-    May your life be full of power, adventures, and happiness! 🎉
-  </p>
+            // Change UI
+            wish.style.opacity = '1';
+            title.innerText = "LEVEL 10";
+            container.style.borderColor = "#fff";
+            container.style.boxShadow = "0 0 100px #39FF14";
 
-  <button onclick="showWish()">Activate Surprise</button>
-</div>
+            // Create "Alien Sparks"
+            for(let i = 0; i < 20; i++) {
+                createSpark();
+            }
+        }
 
-<div class="popup" id="popup">
-  <h2>It's Hero Time! 💚🔥</h2>
-  <p>Happy Birthday Champion 🎂</p>
-</div>
+        function createSpark() {
+            const spark = document.createElement('div');
+            spark.className = 'alien-icon';
+            spark.innerHTML = '⚡';
+            spark.style.left = Math.random() * 100 + 'vw';
+            spark.style.top = '100vh';
+            spark.style.color = '#39FF14';
+            spark.style.fontSize = Math.random() * 30 + 10 + 'px';
+            spark.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(spark);
+            
+            setTimeout(() => { spark.remove(); }, 5000);
+        }
 
-<script>
-// Particle Background
-const canvas = document.getElementById("bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-for(let i=0;i<80;i++){
-  particles.push({
-    x: Math.random()*canvas.width,
-    y: Math.random()*canvas.height,
-    r: Math.random()*2,
-    d: Math.random()*1
-  });
-}
-
-function draw(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="#00ff88";
-  particles.forEach(p=>{
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-  });
-  update();
-}
-
-function update(){
-  particles.forEach(p=>{
-    p.y += p.d;
-    if(p.y > canvas.height){
-      p.y = 0;
-      p.x = Math.random()*canvas.width;
-    }
-  });
-}
-
-setInterval(draw,30);
-
-// Popup
-function showWish(){
-  document.getElementById("popup").classList.add("active");
-}
-</script>
-
+        // Periodic sparks for atmosphere
+        setInterval(createSpark, 500);
+    </script>
 </body>
 </html>

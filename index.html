@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
+<title>Happy Birthday Hero 💚</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -16,223 +16,200 @@
 }
 
 body {
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
+  background: radial-gradient(circle at center, #0f0f0f, #000);
+  overflow: hidden;
+  color: white;
 }
 
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
+/* Background particles */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-/* Cursor Glow */
-#cursor-glow {
-  position: fixed;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(255,77,109,0.3), transparent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-  transform: translate(-50%, -50%);
-}
-
-/* Sections */
-.section {
+/* Center Content */
+.container {
+  position: relative;
+  z-index: 2;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  flex-direction: column;
   text-align: center;
-  overflow: hidden;
 }
 
-/* Parallax */
-.parallax {
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+/* Glowing Title */
+h1 {
+  font-size: 2.5rem;
+  color: #00ff88;
+  text-shadow: 0 0 20px #00ff88;
+  animation: glow 2s infinite alternate;
 }
 
-.sec1 {
-  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+@keyframes glow {
+  from { text-shadow: 0 0 10px #00ff88; }
+  to { text-shadow: 0 0 30px #00ff88; }
 }
 
-.sec2 {
-  background-image: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7');
+/* Omnitrix Circle */
+.omnitrix {
+  width: 150px;
+  height: 150px;
+  border: 6px solid #00ff88;
+  border-radius: 50%;
+  margin: 20px 0;
+  position: relative;
+  box-shadow: 0 0 25px #00ff88;
+  animation: rotate 6s linear infinite;
 }
 
-.sec3 {
-  background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2');
-}
-
-/* Overlay */
-.section::after {
+.omnitrix::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
+  width: 60px;
+  height: 60px;
+  background: #00ff88;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Glass Card */
-.content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 40px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.2);
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
 
+/* Message */
+.message {
+  max-width: 300px;
+  font-size: 1rem;
   opacity: 0;
-  transform: translateY(60px) scale(0.95);
-  transition: all 1s ease;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 2s;
 }
 
-/* Reveal Animation */
-.content.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-}
-
-p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* Proposal Text */
-.proposal {
-  margin-top: 20px;
-  font-size: 2.5rem;
-  color: #ff4d6d;
-  animation: glowPulse 1.5s infinite;
-}
-
-@keyframes glowPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.07); text-shadow: 0 0 25px #ff4d6d; }
-  100% { transform: scale(1); }
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 /* Button */
-.btn {
-  margin-top: 25px;
-  padding: 14px 35px;
+button {
+  margin-top: 20px;
+  padding: 10px 25px;
   border: none;
-  border-radius: 50px;
-  background: linear-gradient(45deg, #ff4d6d, #ff8fa3);
-  color: #fff;
-  font-size: 1.1rem;
+  background: #00ff88;
+  color: black;
+  font-weight: bold;
+  border-radius: 25px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.btn:hover {
+button:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 15px #00ff88;
 }
 
-/* Floating Hearts */
-.heart {
+/* Popup */
+.popup {
   position: fixed;
-  bottom: -20px;
-  font-size: 20px;
-  animation: floatUp linear forwards;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
   pointer-events: none;
+  transition: 0.5s;
 }
 
-@keyframes floatUp {
-  0% { transform: translateY(0); opacity: 0; }
-  20% { opacity: 1; }
-  100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+.popup.active {
+  opacity: 1;
+  pointer-events: all;
 }
+
+.popup h2 {
+  color: #00ff88;
+  font-size: 2rem;
+  animation: glow 2s infinite alternate;
+}
+
 </style>
 </head>
 
 <body>
 
-<div id="cursor-glow"></div>
+<canvas id="bg"></canvas>
 
-<section class="section parallax sec1">
-  <div class="content">
-    <h1>Hey ❤️</h1>
-    <p>From the moment I saw you, everything felt different. My world became brighter, and my heart found its place.</p>
-  </div>
-</section>
+<div class="container">
+  <h1>Happy Birthday Hero 💚</h1>
 
-<section class="section parallax sec2">
-  <div class="content">
-    <h1>You Are Special ✨</h1>
-    <p>You make my life happier in ways I can't explain. Every moment feels magical with you.</p>
-  </div>
-</section>
+  <div class="omnitrix"></div>
 
-<section class="section parallax sec3">
-  <div class="content">
-    <h1>I Have Something To Say 💌</h1>
-    <p>And I want this feeling to last forever...</p>
-    <div class="proposal">Will You Be Mine? 💖</div>
-    <button class="btn" onclick="yesClick()">Yes, Forever 💘</button>
-  </div>
-</section>
+  <p class="message">
+    You are just like Ben 10 — strong, fearless, and always saving the day! 💥  
+    May your life be full of power, adventures, and happiness! 🎉
+  </p>
+
+  <button onclick="showWish()">Activate Surprise</button>
+</div>
+
+<div class="popup" id="popup">
+  <h2>It's Hero Time! 💚🔥</h2>
+  <p>Happy Birthday Champion 🎂</p>
+</div>
 
 <script>
-// Cursor Glow
-const glow = document.getElementById("cursor-glow");
-document.addEventListener("mousemove", e => {
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
+// Particle Background
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
 
-// Reveal Animation
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+  particles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*2,
+    d: Math.random()*1
   });
-}, { threshold: 0.3 });
-
-document.querySelectorAll(".content").forEach(el => observer.observe(el));
-
-// Floating Hearts
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-
-  const icons = ["❤️","💖","💘","✨"];
-  heart.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
-  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-
-  document.body.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 7000);
 }
 
-setInterval(createHeart, 400);
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#00ff88";
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  update();
+}
 
-// Button Click
-function yesClick() {
-  for (let i = 0; i < 25; i++) {
-    setTimeout(createHeart, i * 80);
-  }
+function update(){
+  particles.forEach(p=>{
+    p.y += p.d;
+    if(p.y > canvas.height){
+      p.y = 0;
+      p.x = Math.random()*canvas.width;
+    }
+  });
+}
 
-  document.body.style.background = "#1a0010";
+setInterval(draw,30);
 
-  setTimeout(() => {
-    alert("🥺❤️ This is the beginning of our forever!");
-  }, 300);
+// Popup
+function showWish(){
+  document.getElementById("popup").classList.add("active");
 }
 </script>
 

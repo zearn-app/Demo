@@ -21,12 +21,12 @@ const controlsWebGL = new THREE.OrbitControls(camera, renderer.domElement);
 /* PARTICLES */
 // Create a global gsap timeline that contains all tweens
 const tl = gsap.timeline({
-  repeat: 0, // play only once
+  repeat: 1, // plays 2 times total
+  yoyo: true,
   onComplete: () => {
-    window.location.href = "exit.html"; // redirect after animation
+    window.location.href = "exit.html";
   }
 });
-
 const path = document.querySelector("path");
 const length = path.getTotalLength();
 const vertices = [];
@@ -60,10 +60,11 @@ gsap.fromTo(scene.rotation, {
   y: -0.2
 }, {
   y: 0.2,
+  repeat: 1, // 2 times
+  yoyo: true,
   ease: 'power2.inOut',
   duration: 3
-});
-/* RENDERING */
+});/* RENDERING */
 function render() {
   requestAnimationFrame(render);
   // Update the geometry from the animated vertices

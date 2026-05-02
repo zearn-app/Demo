@@ -1,196 +1,201 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<title>For You ❤️</title>  
-  
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">  
-  
-<style>  
-* {  
-  margin: 0;  
-  padding: 0;  
-  box-sizing: border-box;  
-  font-family: 'Poppins', sans-serif;  
-}  
-  
-body {  
-  height: 100vh;  
-  overflow: hidden;  
-  background: linear-gradient(135deg, #ff4e50, #ff9a9e);  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  color: white;  
-}  
-  
-/* Floating hearts */  
-.heart {  
-  position: absolute;  
-  width: 20px;  
-  height: 20px;  
-  background: red;  
-  transform: rotate(45deg);  
-  animation: float 6s infinite;  
-}  
-.heart::before,  
-.heart::after {  
-  content: '';  
-  width: 20px;  
-  height: 20px;  
-  background: red;  
-  position: absolute;  
-  border-radius: 50%;  
-}  
-.heart::before {  
-  top: -10px;  
-}  
-.heart::after {  
-  left: -10px;  
-}  
-  
-@keyframes float {  
-  0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }  
-  100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }  
-}  
-  
-/* Card */  
-.container {  
-  text-align: center;  
-  z-index: 2;  
-}  
-  
-h1 {  
-  font-size: 2.5rem;  
-  margin-bottom: 10px;  
-  animation: fadeIn 2s ease;  
-}  
-  
-#typing {  
-  font-size: 1.3rem;  
-  min-height: 40px;  
-  margin-bottom: 20px;  
-}  
-  
-button {  
-  padding: 12px 25px;  
-  border: none;  
-  border-radius: 30px;  
-  background: white;  
-  color: #ff4e50;  
-  font-size: 1rem;  
-  cursor: pointer;  
-  transition: 0.3s;  
-}  
-  
-button:hover {  
-  transform: scale(1.1);  
-  background: #ffe0e0;  
-}  
-  
-.hidden {  
-  display: none;  
-}  
-  
-@keyframes fadeIn {  
-  from {opacity: 0; transform: translateY(20px);}  
-  to {opacity: 1; transform: translateY(0);}  
-}  
-  
-/* Love burst */  
-.love {  
-  font-size: 3rem;  
-  animation: pop 1s infinite alternate;  
-}  
-  
-@keyframes pop {  
-  from { transform: scale(1); }  
-  to { transform: scale(1.2); }  
-}  
-  
-</style>  
-</head>  
-  
-<body>  
-  
-<div class="container">  
-  <h1>Hey ❤️</h1>  
-  <div id="typing"></div>  
-  
-  <button onclick="startProposal()">Click Me 💌</button>  
-  
-  <div id="proposal" class="hidden">  
-    <h1>Will You Be Mine? 💖</h1>  
-    <div class="love">❤️</div>  
-    <br>  
-    <button onclick="yes()">Yes 😍</button>  
-    <button onclick="no()">No 😢</button>  
-  </div>  
-</div>  
-  
-<audio id="music" loop>  
-  <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">  
-</audio>  
-  
-<script>  
-// Typing effect  
-const text = "I have something special to tell you...";  
-let i = 0;  
-  
-function typeEffect() {  
-  if (i < text.length) {  
-    document.getElementById("typing").innerHTML += text.charAt(i);  
-    i++;  
-    setTimeout(typeEffect, 50);  
-  }  
-}  
-typeEffect();  
-  
-// Floating hearts generator  
-setInterval(() => {  
-  const heart = document.createElement("div");  
-  heart.classList.add("heart");  
-  heart.style.left = Math.random() * 100 + "vw";  
-  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";  
-  document.body.appendChild(heart);  
-  
-  setTimeout(() => {  
-    heart.remove();  
-  }, 6000);  
-}, 300);  
-  
-// Start proposal  
-function startProposal() {  
-  document.querySelector("button").style.display = "none";  
-  document.getElementById("proposal").classList.remove("hidden");  
-  document.getElementById("music").play();  
-}  
-  
-// Yes button  
-function yes() {  
-  document.body.innerHTML = `  
-    <div style="text-align:center">  
-      <h1>I Love You So Much ❤️</h1>  
-      <h2>You Made Me The Happiest Person 😍</h2>  
-      <div style="font-size:4rem">💖💖💖</div>  
-      <br><br>  
-      <button onclick="goNext()">Next ➡️</button>  
-    </div>  
-  `;  
-}  
-  
-// Redirect function  
-function goNext() {  
-  window.location.href = "main.html";  
-}  
-  
-// No button  
-function no() {  
-  alert("You can't say no 😜❤️");  
-}  
-  
-</script>  
-  
-</body>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: #000; /* ✅ black theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff2e63; /* neon pink */
+  transform: rotate(45deg);
+  animation: float 6s infinite;
+  box-shadow: 0 0 15px #ff2e63;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: #ff2e63;
+  position: absolute;
+  border-radius: 50%;
+}
+.heart::before {
+  top: -10px;
+}
+.heart::after {
+  left: -10px;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+}
+
+/* Card */
+.container {
+  text-align: center;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: fadeIn 2s ease;
+  text-shadow: 0 0 15px #ff2e63;
+}
+
+#typing {
+  font-size: 1.3rem;
+  min-height: 40px;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+/* Buttons */
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #ff2e63;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #ff2e63;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: #ff0055;
+  box-shadow: 0 0 20px #ff0055;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Love burst */
+.love {
+  font-size: 3rem;
+  animation: pop 1s infinite alternate;
+  text-shadow: 0 0 20px #ff2e63;
+}
+
+@keyframes pop {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Hey ❤️</h1>
+  <div id="typing"></div>
+
+  <button onclick="startProposal()">Click Me 💌</button>
+
+  <div id="proposal" class="hidden">
+    <h1>Will You Be Mine? 💖</h1>
+    <div class="love">❤️</div>
+    <br>
+    <button onclick="yes()">Yes 😍</button>
+    <button onclick="no()">No 😢</button>
+  </div>
+</div>
+
+<audio id="music" loop>
+  <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Typing effect
+const text = "I have something special to tell you...";
+let i = 0;
+
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 50);
+  }
+}
+typeEffect();
+
+// Floating hearts generator
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 300);
+
+// Start proposal
+function startProposal() {
+  document.querySelector("button").style.display = "none";
+  document.getElementById("proposal").classList.remove("hidden");
+  document.getElementById("music").play();
+}
+
+// Yes button
+function yes() {
+  document.body.innerHTML = `
+    <div style="text-align:center">
+      <h1 style="text-shadow:0 0 20px #ff2e63;">I Love You So Much ❤️</h1>
+      <h2>You Made Me The Happiest Person 😍</h2>
+      <div style="font-size:4rem">💖💖💖</div>
+      <br><br>
+      <button onclick="goNext()">Next ➡️</button>
+    </div>
+  `;
+}
+
+// Redirect function
+function goNext() {
+  window.location.href = "main.html";
+}
+
+// No button
+function no() {
+  alert("You can't say no 😜❤️");
+}
+</script>
+
+</body>
 </html>

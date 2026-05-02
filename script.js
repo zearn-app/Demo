@@ -13,7 +13,6 @@ camera.position.z = 500;
 const renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0xffffff, 1); // white background
 document.body.appendChild(renderer.domElement);
 
 /* CONTROLS */
@@ -50,7 +49,7 @@ for (let i = 0; i < length; i += 0.1) {
   );
 }
 const geometry = new THREE.BufferGeometry().setFromPoints(vertices);
-const material = new THREE.PointsMaterial( { color: 0xee5282, size: 3 } );
+const material = new THREE.PointsMaterial( { color: 0xee5282,blending: THREE.AdditiveBlending, size: 3 } );
 const particles = new THREE.Points(geometry, material);
 // Offset the particles in the scene based on the viewbox values
 particles.position.x -= 600 / 2;

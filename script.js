@@ -13,6 +13,7 @@ camera.position.z = 500;
 const renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0xffffff, 1); // white background
 document.body.appendChild(renderer.domElement);
 
 /* CONTROLS */

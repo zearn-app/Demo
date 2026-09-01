@@ -393,4 +393,742 @@
 </head>
 <body>
 
+<!-- ============ HEADER ============ -->
+<header id="site-header">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="go('home');return false;">
+      <span class="logo-mark">HC</span>
+      <span class="logo-text">The Harsha Crafts<span>&amp; Gifts · Custom Made</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="#" onclick="go('home');return false;">Home</a>
+      <a href="#" onclick="go('shop');return false;">Shop</a>
+      <a href="#" onclick="go('shop','Personalized Gifts');return false;">Categories</a>
+      <a href="#" onclick="go('shop','Personalized Gifts');return false;">Personalized Gifts</a>
+      <a href="#" onclick="go('about');return false;">About Us</a>
+      <a href="#" onclick="go('contact');return false;">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="Search" onclick="toggleSearch(true)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Cart" onclick="toggleCart(true)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="badge-count" id="cart-badge" style="display:none;">0</span>
+      </button>
+      <a class="nav-wa" href="https://wa.me/919677324442" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L3 21l3.7-1.28a8.9 8.9 0 0 0 5.35 1.81h.02a8.93 8.93 0 0 0 8.9-8.87 8.85 8.85 0 0 0-3.37-6.34zM12.07 20a7.4 7.4 0 0 1-3.78-1.03l-.27-.16-2.8.97.94-2.73-.18-.28a7.44 7.44 0 1 1 6.09 3.23zm4.08-5.57c-.22-.11-1.32-.65-1.53-.73s-.35-.11-.5.11-.58.73-.71.88-.26.16-.48.05a6.1 6.1 0 0 1-1.79-1.1 6.7 6.7 0 0 1-1.24-1.54c-.13-.22 0-.34.1-.45s.22-.26.33-.39a1.5 1.5 0 0 0 .22-.37.4.4 0 0 0 0-.39c-.05-.11-.5-1.2-.68-1.65s-.36-.37-.5-.38h-.43a.82.82 0 0 0-.6.28 2.5 2.5 0 0 0-.78 1.86 4.36 4.36 0 0 0 .91 2.3 9.99 9.99 0 0 0 3.83 3.38c.54.23.96.37 1.28.47a3.08 3.08 0 0 0 1.42.09 2.33 2.33 0 0 0 1.53-1.08 1.9 1.9 0 0 0 .13-1.08c-.06-.1-.2-.16-.42-.27z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <button class="hamburger icon-btn" aria-label="Menu" onclick="toggleMobileMenu(true)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-top">
+    <span class="logo-text">The Harsha Crafts</span>
+    <button class="icon-btn" onclick="toggleMobileMenu(false)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <a href="#" onclick="go('home');toggleMobileMenu(false);return false;">Home</a>
+  <a href="#" onclick="go('shop');toggleMobileMenu(false);return false;">Shop</a>
+  <a href="#" onclick="go('shop','Personalized Gifts');toggleMobileMenu(false);return false;">Personalized Gifts</a>
+  <a href="#" onclick="go('about');toggleMobileMenu(false);return false;">About Us</a>
+  <a href="#" onclick="go('contact');toggleMobileMenu(false);return false;">Contact</a>
+  <a href="https://wa.me/919677324442" target="_blank" style="color:var(--wine);">Chat on WhatsApp →</a>
+</div>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search for a personalized gift…" oninput="doSearch(this.value)">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<!-- ============ HOME PAGE ============ -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy fade-in">
+        <div class="ig-chip">
+          <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></span>
+          302K+ Instagram Family — @the_harsha_crafts
+        </div>
+        <h1>Thoughtful gifts, beautifully crafted, made to be remembered.</h1>
+        <p class="lead">Discover personalized gifts and handcrafted creations made for birthdays, anniversaries, weddings, celebrations and every special moment — designed for you, delivered pan-India.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="go('shop')">Shop Now</button>
+          <a class="btn btn-whatsapp" href="https://wa.me/919677324442" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L3 21l3.7-1.28a8.9 8.9 0 0 0 5.35 1.81h.02a8.93 8.93 0 0 0 8.9-8.87 8.85 8.85 0 0 0-3.37-6.34zM12.07 20a7.4 7.4 0 0 1-3.78-1.03l-.27-.16-2.8.97.94-2.73-.18-.28a7.44 7.44 0 1 1 6.09 3.23z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>302K+</b><span>Instagram followers</span></div>
+          <div class="stat"><b>5,176</b><span>Posts &amp; creations shared</span></div>
+          <div class="stat"><b>Pan-India</b><span>Delivery available</span></div>
+        </div>
+      </div>
+      <div class="hero-visual fade-in">
+        <div class="arch-frame">
+          <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=800&q=80" alt="Handcrafted personalized gift box with ribbon and dried flowers">
+        </div>
+        <div class="floating-card fc1">
+          <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0z"/><path d="M12 8v4l3 3"/></svg></div>
+          <div><b>Made to order</b><span>Crafted just for you</span></div>
+        </div>
+        <div class="floating-card fc2">
+          <div class="fc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v13H3z"/><path d="M16 21H8"/><path d="M12 17v4"/></svg></div>
+          <div><b>Custom Name</b><span>Add a personal touch</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="wrap trust-inner">
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>302K+ Instagram Followers</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>5,000+ Posts Shared</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M12 3v18"/></svg>Pan-India Delivery</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>Custom &amp; Personalized Gifts</div>
+    </div>
+  </div>
+
+  <section class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Browse</span>
+        <h2>Shop by category</h2>
+      </div>
+      <a class="view-all-link" href="#" onclick="go('shop');return false;">View all categories →</a>
+    </div>
+    <div class="cat-grid" id="category-grid"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Loved the most</span>
+        <h2>Bestsellers this season</h2>
+        <p>Realistic placeholder products — final pricing and photography will reflect your actual catalogue.</p>
+      </div>
+      <a class="view-all-link" href="#" onclick="go('shop');return false;">Shop all products →</a>
+    </div>
+    <div class="prod-grid" id="bestseller-grid"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="personalize">
+      <div class="personalize-inner">
+        <span class="eyebrow" style="color:var(--gold-soft); text-align:center; display:block;">Made just for you</span>
+        <h2>Make it personal ❤️</h2>
+        <p>Every gift can carry a name, a message, or a memory. Here's how we bring your idea to life.</p>
+        <div class="steps-row">
+          <div class="step"><div class="step-num">1</div><h4>Choose your gift</h4><p>Pick a product from our collection or tell us your idea.</p></div>
+          <div class="step"><div class="step-num">2</div><h4>Share your customization</h4><p>Add a name, message, photo or colour preference.</p></div>
+          <div class="step"><div class="step-num">3</div><h4>We craft it specially</h4><p>Our artisans handcraft your gift with care and detail.</p></div>
+          <div class="step"><div class="step-num">4</div><h4>Delivered to your door</h4><p>Packed with love and shipped across India.</p></div>
+        </div>
+        <div class="personalize-cta"><button class="btn btn-gold" onclick="go('shop','Personalized Gifts')">Create Your Gift</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="insta-head">
+      <span class="eyebrow">Community</span>
+      <h2>Loved by 302K+ on Instagram</h2>
+      <p>A glimpse of the creations our community shares every day.</p>
+    </div>
+    <div class="insta-grid" id="insta-grid"></div>
+    <div class="insta-cta">
+      <a class="btn btn-outline" href="https://instagram.com/the_harsha_crafts" target="_blank" rel="noopener">Follow @the_harsha_crafts</a>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head" style="margin-bottom:36px;">
+      <div><span class="eyebrow">Why us</span><h2>Why choose The Harsha Crafts</h2></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V10M12 10 6 6M12 10l6-4M4 14l8 6 8-6"/></svg></div><h4>Personalized designs</h4><p>Every piece can be shaped around a name, date or story that matters to you.</p></div>
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/></svg></div><h4>Thoughtful gifting</h4><p>Curated for the moments that deserve more than an off-the-shelf gift.</p></div>
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 21h10M12 3v18M3 8l9-5 9 5-9 5-9-5z"/></svg></div><h4>Handcrafted quality</h4><p>Made by hand with care, not mass-produced on an assembly line.</p></div>
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v10H3zM16 10h4l3 3v4h-7z"/><circle cx="7" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg></div><h4>Pan-India delivery</h4><p>From metros to smaller towns, your gift finds its way there.</p></div>
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h4>Made for special moments</h4><p>Birthdays, anniversaries, weddings — every occasion, covered.</p></div>
+      <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L3 21l3.7-1.28a8.9 8.9 0 0 0 5.35 1.81h.02a8.93 8.93 0 0 0 8.9-8.87 8.85 8.85 0 0 0-3.37-6.34z"/></svg></div><h4>Easy WhatsApp support</h4><p>Real answers from a real team — no chasing chatbots.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head" style="margin-bottom:28px;">
+      <div><span class="eyebrow">For every celebration</span><h2>Shop by occasion</h2></div>
+    </div>
+    <div class="occ-scroll" id="occasion-scroll"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head" style="margin-bottom:28px;"><div><span class="eyebrow">Simple &amp; guided</span><h2>How to order</h2></div></div>
+    <div class="order-flow">
+      <div class="order-step"><div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><span>Browse</span></div>
+      <div class="order-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      <div class="order-step"><div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></div><span>Customize</span></div>
+      <div class="order-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      <div class="order-step"><div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg></div><span>Confirm</span></div>
+      <div class="order-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      <div class="order-step"><div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><span>Pay</span></div>
+      <div class="order-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      <div class="order-step"><div class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v10H3zM16 10h4l3 3v4h-7z"/><circle cx="7" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg></div><span>Delivered</span></div>
+    </div>
+    <div class="order-help">
+      <div><h3>Need help choosing a gift?</h3><p>Our team can help you find or design the perfect one.</p></div>
+      <a class="btn btn-whatsapp" href="https://wa.me/919677324442" target="_blank" rel="noopener">Chat with us on WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="wa-cta">
+      <h2>Have a custom gift idea?</h2>
+      <p>Tell us what you're looking for — our team will help you create something special, from concept to doorstep.</p>
+      <a class="btn btn-gold" href="https://wa.me/919677324442" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </section>
+
+</div>
+
+
+
+<!-- ============ SHOP PAGE ============ -->
+<div class="page" id="page-shop">
+  <div class="wrap shop-hero">
+    <span class="eyebrow">Full collection</span>
+    <h1>Shop all gifts &amp; crafts</h1>
+    <p>Every piece can be personalized — pick a category, or search for exactly what you have in mind.</p>
+  </div>
+  <div class="wrap">
+    <div class="shop-toolbar">
+      <div class="chip-row" id="shop-chips"></div>
+      <select class="sort-select" id="sort-select" onchange="renderShop()">
+        <option value="featured">Sort: Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="name">Name: A–Z</option>
+      </select>
+    </div>
+    <p class="result-count" id="result-count"></p>
+    <div class="prod-grid" id="shop-grid"></div>
+  </div>
+</div>
+
+<!-- ============ PRODUCT DETAIL PAGE ============ -->
+<div class="page" id="page-product">
+  <div class="wrap">
+    <p class="pd-breadcrumb"><a href="#" onclick="go('home');return false;">Home</a> / <a href="#" onclick="go('shop');return false;">Shop</a> / <span id="pd-crumb-name"></span></p>
+    <div class="pd-grid" id="pd-content"></div>
+  </div>
+</div>
+
+<!-- ============ ABOUT PAGE ============ -->
+<div class="page" id="page-about">
+  <div class="wrap" style="padding:56px 0 80px; max-width:800px;">
+    <span class="eyebrow">Our story</span>
+    <h1 style="font-size:clamp(28px,4vw,42px); margin-bottom:22px;">About The Harsha Crafts &amp; Gifts</h1>
+    <p style="font-size:16px; color:var(--espresso-soft); margin-bottom:18px;">The Harsha Crafts &amp; Gifts is a custom gifting and craft studio, built around one idea: a gift should feel like it was made for exactly one person. What began as a small collection of handmade, personalized pieces has grown into a following of 302K+ on Instagram (@the_harsha_crafts), with 5,176 posts of creations shared with a community across India.</p>
+    <p style="font-size:16px; color:var(--espresso-soft); margin-bottom:18px;">Every order is treated as one-of-a-kind — a name etched into wood, a photo turned into a keepsake, a message tucked into a handmade card. The studio works closely with each customer over WhatsApp to get every detail right before anything is crafted.</p>
+    <p style="font-size:16px; color:var(--espresso-soft); margin-bottom:32px;">This website is a demo concept created to show how that same personal experience could work as a proper online store — so an Instagram visitor can go from discovery to a confirmed, customized order without leaving a single conversation thread.</p>
+    <a class="btn btn-primary" href="#" onclick="go('shop');return false;">Explore the shop</a>
+  </div>
+</div>
+
+<!-- ============ CONTACT PAGE ============ -->
+<div class="page" id="page-contact">
+  <div class="wrap" style="padding:56px 0 80px; max-width:640px;">
+    <span class="eyebrow">Get in touch</span>
+    <h1 style="font-size:clamp(28px,4vw,42px); margin-bottom:16px;">Contact us</h1>
+    <p style="font-size:15.5px; color:var(--espresso-soft); margin-bottom:32px;">The fastest way to reach the team is on WhatsApp — most gifting questions get answered within the day.</p>
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <a class="btn btn-whatsapp" style="justify-content:flex-start; padding:18px 22px;" href="https://wa.me/919677324442" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L3 21l3.7-1.28a8.9 8.9 0 0 0 5.35 1.81h.02a8.93 8.93 0 0 0 8.9-8.87 8.85 8.85 0 0 0-3.37-6.34z"/></svg>
+        +91 96773 24442 — Chat on WhatsApp
+      </a>
+      <a class="btn btn-outline" style="justify-content:flex-start; padding:18px 22px;" href="https://instagram.com/the_harsha_crafts" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+        @the_harsha_crafts on Instagram
+      </a>
+    </div>
+    <p style="font-size:12.5px; color:var(--espresso-soft); margin-top:28px;">This is a demo site — the form below does not send real messages, but shows how enquiries could be collected on a live site.</p>
+    <form style="margin-top:16px; display:flex; flex-direction:column; gap:12px;" onsubmit="event.preventDefault(); showToast('This is a demo — enquiries would be sent to the team.');">
+      <input type="text" placeholder="Your name" required style="padding:13px 16px; border:1px solid var(--line); border-radius:12px; font-family:inherit; background:var(--paper);">
+      <input type="text" placeholder="Phone or email" required style="padding:13px 16px; border:1px solid var(--line); border-radius:12px; font-family:inherit; background:var(--paper);">
+      <textarea placeholder="What are you looking for?" rows="4" style="padding:13px 16px; border:1px solid var(--line); border-radius:12px; font-family:inherit; background:var(--paper); resize:vertical;"></textarea>
+      <button class="btn btn-primary" type="submit" style="align-self:flex-start;">Send enquiry</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ CART PAGE (fallback if drawer closed then Cart nav used) ============ -->
+<div class="page" id="page-checkout">
+  <div class="wrap" style="padding:44px 0 80px;">
+    <h1 style="font-size:clamp(26px,3.4vw,36px); margin-bottom:24px;">Checkout <span style="font-size:13px; font-weight:600; color:var(--gold); vertical-align:middle;">DEMO</span></h1>
+    <div class="checkout-grid" id="checkout-grid"></div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text">The Harsha Crafts &amp; Gifts</span>
+        <p>Custom gifts &amp; crafts, handmade and personalized for every celebration.</p>
+        <p style="margin-top:16px; font-size:12.5px; color:var(--gold-soft); font-weight:600;">Pan-India Delivery</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <a href="#" onclick="go('home');return false;">Home</a>
+        <a href="#" onclick="go('shop');return false;">Shop</a>
+        <a href="#" onclick="go('shop');return false;">Categories</a>
+        <a href="#" onclick="go('about');return false;">About</a>
+        <a href="#" onclick="go('contact');return false;">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Customer Support</h5>
+        <a href="https://wa.me/919677324442" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://instagram.com/the_harsha_crafts" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div class="footer-col">
+        <h5>Follow</h5>
+        <div class="footer-social">
+          <a href="https://instagram.com/the_harsha_crafts" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+          <a href="https://wa.me/919677324442" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L3 21l3.7-1.28a8.9 8.9 0 0 0 5.35 1.81h.02a8.93 8.93 0 0 0 8.9-8.87 8.85 8.85 0 0 0-3.37-6.34z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Harsha Crafts &amp; Gifts. All rights reserved.</span>
+      <span>@the_harsha_crafts</span>
+    </div>
+    <p class="footer-demo-note">This is a concept demo website created to showcase a possible online store for The Harsha Crafts &amp; Gifts. It is not the business's official website and is not affiliated with or operated by Meta/Instagram.</p>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/919677324442" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L3 21l3.7-1.28a8.9 8.9 0 0 0 5.35 1.81h.02a8.93 8.93 0 0 0 8.9-8.87 8.85 8.85 0 0 0-3.37-6.34zM12.07 20a7.4 7.4 0 0 1-3.78-1.03l-.27-.16-2.8.97.94-2.73-.18-.28a7.44 7.44 0 1 1 6.09 3.23zm4.08-5.57c-.22-.11-1.32-.65-1.53-.73s-.35-.11-.5.11-.58.73-.71.88-.26.16-.48.05a6.1 6.1 0 0 1-1.79-1.1 6.7 6.7 0 0 1-1.24-1.54c-.13-.22 0-.34.1-.45s.22-.26.33-.39a1.5 1.5 0 0 0 .22-.37.4.4 0 0 0 0-.39c-.05-.11-.5-1.2-.68-1.65s-.36-.37-.5-.38h-.43a.82.82 0 0 0-.6.28 2.5 2.5 0 0 0-.78 1.86 4.36 4.36 0 0 0 .91 2.3 9.99 9.99 0 0 0 3.83 3.38c.54.23.96.37 1.28.47a3.08 3.08 0 0 0 1.42.09 2.33 2.33 0 0 0 1.53-1.08 1.9 1.9 0 0 0 .13-1.08c-.06-.1-.2-.16-.42-.27z"/></svg>
+</a>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart(false)"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="close-x" onclick="toggleCart(false)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-foot" id="cart-foot"></div>
+</div>
+
+<div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span id="toast-text"></span></div>
+
+<script>
+/* ============ DATA ============ */
+const CATEGORIES = [
+  { name:"Personalized Gifts", img:"https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=600&q=80" },
+  { name:"Birthday Gifts", img:"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80" },
+  { name:"Anniversary Gifts", img:"https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80" },
+  { name:"Wedding Gifts", img:"https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80" },
+  { name:"Couple Gifts", img:"https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80" },
+  { name:"Handmade Crafts", img:"https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&q=80" },
+  { name:"Photo Gifts", img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" },
+  { name:"Special Occasion Gifts", img:"https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=600&q=80" }
+];
+
+const PRODUCTS = [
+  { id:1, name:"Personalized Couple Gift Frame", cat:"Couple Gifts", price:1299, old:1599, img:["https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80","https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80"], tag:"Bestseller", desc:"A handcrafted frame personalized with your names and a favourite memory — a keepsake for the two of you." },
+  { id:2, name:"Custom Photo Frame", cat:"Photo Gifts", price:899, old:null, img:["https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80","https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=800&q=80"], tag:"Popular", desc:"Turn a favourite photograph into a beautifully finished keepsake frame, made to order." },
+  { id:3, name:"Handmade Memory Box", cat:"Handmade Crafts", price:1599, old:null, img:["https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800&q=80","https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80"], tag:"Handmade", desc:"A hand-finished wooden box to hold letters, photographs and small keepsakes — personalized on the lid." },
+  { id:4, name:"Personalized Birthday Hamper", cat:"Birthday Gifts", price:1999, old:2499, img:["https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80","https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=800&q=80"], tag:"Bestseller", desc:"A curated hamper of treats and keepsakes, wrapped and personalized for their birthday." },
+  { id:5, name:"Custom Name Wooden Plaque", cat:"Personalized Gifts", price:749, old:null, img:["https://images.unsplash.com/photo-1609205807107-e5ec2c1c894c?w=800&q=80","https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80"], tag:null, desc:"An engraved wooden name plaque, finished by hand — a simple, thoughtful gift." },
+  { id:6, name:"Wedding Keepsake Box", cat:"Wedding Gifts", price:2199, old:null, img:["https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80","https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800&q=80"], tag:"New", desc:"A keepsake box for wedding cards, rings or mementos — personalized with the couple's names and date." },
+  { id:7, name:"Anniversary Gift Box", cat:"Anniversary Gifts", price:1799, old:1999, img:["https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80","https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80"], tag:null, desc:"A curated box marking another year together, personalized with your milestone date." },
+  { id:8, name:"Handmade Decorative Wall Art", cat:"Handmade Crafts", price:1299, old:null, img:["https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=800&q=80","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80"], tag:"Handmade", desc:"A hand-finished decorative piece to personalize any home or gifting occasion." },
+  { id:9, name:"Custom Couple Name Keychain", cat:"Couple Gifts", price:399, old:null, img:["https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80","https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800&q=80"], tag:null, desc:"A small, everyday reminder — engraved with both your names or initials." },
+  { id:10, name:"Personalized Photo Collage Frame", cat:"Photo Gifts", price:1099, old:1299, img:["https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=800&q=80","https://images.unsplash.com/photo-1609205807107-e5ec2c1c894c?w=800&q=80"], tag:"Popular", desc:"A multi-photo collage frame, arranged and personalized to tell your story." },
+  { id:11, name:"Special Occasion Gift Set", cat:"Special Occasion Gifts", price:1899, old:null, img:["https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800&q=80","https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80"], tag:null, desc:"A thoughtfully curated set for festivals, milestones and celebrations of every kind." },
+  { id:12, name:"Custom Birthday Name Banner", cat:"Birthday Gifts", price:599, old:null, img:["https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80","https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=800&q=80"], tag:"New", desc:"A handmade banner personalized with a name, for a birthday to remember." }
+];
+
+const OCCASIONS = [
+  { name:"Birthday", img:"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80" },
+  { name:"Anniversary", img:"https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&q=80" },
+  { name:"Wedding", img:"https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&q=80" },
+  { name:"Valentine's Day", img:"https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" },
+  { name:"Friendship", img:"https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" },
+  { name:"Baby & Family", img:"https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=400&q=80" },
+  { name:"Festivals", img:"https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80" },
+  { name:"Corporate / Events", img:"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80" }
+];
+
+const INSTA_IMAGES = [
+  "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=400&q=80",
+  "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&q=80",
+  "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80",
+  "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80",
+  "https://images.unsplash.com/photo-1543589077-47d81606c1bf?w=400&q=80",
+  "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&q=80"
+];
+
+/* ============ STATE ============ */
+let cart = []; // {id, qty, custom:{name,message,color}}
+let wishlist = new Set();
+let currentProduct = null;
+let shopFilter = 'All';
+
+/* ============ ROUTING ============ */
+function go(page, filter){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.main-nav a').forEach(a=>a.classList.remove('active'));
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  if(page==='shop'){
+    shopFilter = filter || 'All';
+    renderShop();
+  }
+  if(page==='checkout'){ renderCheckout(); }
+}
+
+
+
+/* ============ RENDER: HOME ============ */
+function renderCategories(){
+  const grid = document.getElementById('category-grid');
+  grid.innerHTML = CATEGORIES.map(c=>`
+    <div class="cat-card" onclick="go('shop','${c.name}')">
+      <img src="${c.img}" alt="${c.name}" loading="lazy">
+      <div class="cat-card-body">
+        <h3>${c.name}</h3>
+        <span class="explore">Explore <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </div>
+    </div>`).join('');
+}
+
+function productCard(p){
+  const wished = wishlist.has(p.id);
+  return `
+  <div class="prod-card">
+    <div class="prod-media" onclick="openProduct(${p.id})">
+      ${p.tag ? `<span class="prod-tag">${p.tag}</span>`:''}
+      <button class="wish-btn ${wished?'active':''}" onclick="event.stopPropagation();toggleWishlist(${p.id})" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24" fill="${wished?'currentColor':'none'}" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+      <img src="${p.img[0]}" alt="${p.name}" loading="lazy">
+    </div>
+    <div class="prod-body">
+      <span class="prod-cat">${p.cat}</span>
+      <span class="prod-name" onclick="openProduct(${p.id})">${p.name}</span>
+      <div class="prod-price-row">
+        <span class="prod-price">₹${p.price}</span>
+        ${p.old ? `<span class="prod-price-old">₹${p.old}</span>`:''}
+      </div>
+      <span class="prod-price-note">Placeholder price — final pricing to be confirmed</span>
+      <div class="prod-actions">
+        <button class="btn btn-outline" onclick="openProduct(${p.id})">Customize</button>
+        <button class="btn btn-primary" onclick="event.stopPropagation();quickAdd(${p.id})">Add to Cart</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderBestsellers(){
+  const grid = document.getElementById('bestseller-grid');
+  grid.innerHTML = PRODUCTS.slice(0,8).map(productCard).join('');
+}
+
+function renderInsta(){
+  document.getElementById('insta-grid').innerHTML = INSTA_IMAGES.map(src=>`
+    <div class="insta-item">
+      <img src="${src}" alt="Instagram post" loading="lazy">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>`).join('');
+}
+
+function renderOccasions(){
+  document.getElementById('occasion-scroll').innerHTML = OCCASIONS.map(o=>`
+    <div class="occ-card" onclick="go('shop')"><img src="${o.img}" alt="${o.name} gifts" loading="lazy"><span>${o.name}</span></div>
+  `).join('');
+}
+
+/* ============ SHOP PAGE ============ */
+function renderShopChips(){
+  const cats = ['All', ...new Set(PRODUCTS.map(p=>p.cat))];
+  document.getElementById('shop-chips').innerHTML = cats.map(c=>`
+    <button class="chip ${c===shopFilter?'active':''}" onclick="setShopFilter('${c.replace(/'/g,"\\'")}')">${c}</button>
+  `).join('');
+}
+function setShopFilter(c){ shopFilter=c; renderShop(); }
+function renderShop(){
+  renderShopChips();
+  let list = shopFilter==='All' ? PRODUCTS.slice() : PRODUCTS.filter(p=>p.cat===shopFilter);
+  const sort = document.getElementById('sort-select').value;
+  if(sort==='low') list.sort((a,b)=>a.price-b.price);
+  if(sort==='high') list.sort((a,b)=>b.price-a.price);
+  if(sort==='name') list.sort((a,b)=>a.name.localeCompare(b.name));
+  document.getElementById('result-count').textContent = `${list.length} product${list.length!==1?'s':''} ${shopFilter!=='All'?'in '+shopFilter:''}`;
+  document.getElementById('shop-grid').innerHTML = list.length ? list.map(productCard).join('') :
+    `<div class="empty-state" style="grid-column:1/-1;"><h3>No products found</h3><p>Try a different category.</p></div>`;
+}
+
+/* ============ SEARCH ============ */
+function toggleSearch(open){
+  const ov = document.getElementById('search-overlay');
+  ov.classList.toggle('open', open);
+  if(open){ document.getElementById('search-input').focus(); document.getElementById('search-input').value=''; document.getElementById('search-results').innerHTML=''; }
+}
+function doSearch(q){
+  const res = document.getElementById('search-results');
+  if(!q.trim()){ res.innerHTML=''; return; }
+  const matches = PRODUCTS.filter(p=>p.name.toLowerCase().includes(q.toLowerCase())||p.cat.toLowerCase().includes(q.toLowerCase())).slice(0,6);
+  res.innerHTML = matches.length ? matches.map(p=>`
+    <div class="search-results-item" style="cursor:pointer;" onclick="toggleSearch(false);openProduct(${p.id})">
+      <img src="${p.img[0]}" alt="">
+      <div><div class="name">${p.name}</div><div class="price">₹${p.price} · ${p.cat}</div></div>
+    </div>`).join('') : `<div class="search-results-item"><span style="font-size:13.5px;color:var(--espresso-soft);">No products match “${q}”.</span></div>`;
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ toggleSearch(false); toggleCart(false); toggleMobileMenu(false);} });
+
+/* ============ MOBILE MENU ============ */
+function toggleMobileMenu(open){ document.getElementById('mobile-menu').classList.toggle('open', open); }
+
+/* ============ WISHLIST ============ */
+function toggleWishlist(id){
+  if(wishlist.has(id)) wishlist.delete(id); else wishlist.add(id);
+  renderBestsellers(); renderShop(); if(currentProduct) openProduct(currentProduct.id, true);
+  showToast(wishlist.has(id) ? 'Added to wishlist' : 'Removed from wishlist');
+}
+
+/* ============ PRODUCT DETAIL ============ */
+function openProduct(id, silent){
+  const p = PRODUCTS.find(x=>x.id===id);
+  currentProduct = p;
+  document.getElementById('pd-crumb-name').textContent = p.name;
+  const wished = wishlist.has(p.id);
+  document.getElementById('pd-content').innerHTML = `
+    <div class="pd-gallery">
+      <div class="pd-gallery-main"><img id="pd-main-img" src="${p.img[0]}" alt="${p.name}"></div>
+      <div class="pd-thumbs">
+        ${p.img.map((im,i)=>`<div class="pd-thumb ${i===0?'active':''}" onclick="switchThumb(this,'${im}')"><img src="${im}" alt=""></div>`).join('')}
+      </div>
+    </div>
+    <div class="pd-info">
+      <span class="prod-cat">${p.cat}</span>
+      <h1>${p.name}</h1>
+      <div class="pd-price-row"><span class="pd-price">₹${p.price}</span>${p.old?`<span class="prod-price-old">₹${p.old}</span>`:''}</div>
+      <span class="pd-avail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>In stock · Made to order</span>
+      <p class="pd-desc">${p.desc}</p>
+      <div class="pd-badges">
+        <span class="pd-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>Personalized item</span>
+        <span class="pd-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h13v10H3zM16 10h4l3 3v4h-7z"/></svg>Pan-India delivery</span>
+        <span class="pd-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20V10M12 10 6 6M12 10l6-4"/></svg>Made specially for you</span>
+      </div>
+
+      <div class="pd-field"><label for="pd-name">Name to add</label><input type="text" id="pd-name" placeholder="e.g. Aarav &amp; Diya"></div>
+      <div class="pd-field"><label for="pd-msg">Personal message</label><textarea id="pd-msg" rows="3" placeholder="Write a short message to include..."></textarea></div>
+      <div class="pd-field">
+        <label>Colour preference</label>
+        <div class="color-row">
+          <div class="color-swatch active" style="background:#7C2233;" onclick="pickColor(this)"></div>
+          <div class="color-swatch" style="background:#B4863A;" onclick="pickColor(this)"></div>
+          <div class="color-swatch" style="background:#33463A;" onclick="pickColor(this)"></div>
+          <div class="color-swatch" style="background:#2B1B14;" onclick="pickColor(this)"></div>
+          <div class="color-swatch" style="background:#E7D3AA; border:1px solid var(--line);" onclick="pickColor(this)"></div>
+        </div>
+      </div>
+      <div class="pd-field">
+        <label>Reference photo (optional)</label>
+        <div class="upload-box" onclick="showToast('Demo only — photo upload will work on the live site')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <span>Click to upload a photo for reference</span>
+        </div>
+      </div>
+
+      <div class="qty-selector">
+        <label style="margin:0;">Quantity</label>
+        <button class="qty-btn" onclick="changePdQty(-1)">−</button>
+        <span class="qty-val" id="pd-qty">1</span>
+        <button class="qty-btn" onclick="changePdQty(1)">+</button>
+      </div>
+
+      <div class="pd-actions">
+        <button class="btn btn-outline" onclick="toggleWishlist(${p.id})">${wished?'♥ Wishlisted':'♡ Wishlist'}</button>
+        <button class="btn btn-primary" onclick="addToCartFromPD()">Add to Cart</button>
+        <button class="btn btn-gold" onclick="buyNow()">Buy Now</button>
+      </div>
+      <a class="btn btn-whatsapp pd-wa-enquiry" href="https://wa.me/919677324442?text=${encodeURIComponent('Hi! I want to enquire about: '+p.name)}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L3 21l3.7-1.28a8.9 8.9 0 0 0 5.35 1.81h.02a8.93 8.93 0 0 0 8.9-8.87 8.85 8.85 0 0 0-3.37-6.34z"/></svg>
+        WhatsApp enquiry about this product
+      </a>
+    </div>
+  `;
+  document.getElementById('pdQtyValue')?.remove();
+  window._pdQty = 1;
+  if(!silent){
+    document.querySelectorAll('.page').forEach(pg=>pg.classList.remove('active'));
+    document.getElementById('page-product').classList.add('active');
+    window.scrollTo({top:0});
+  }
+}
+function switchThumb(el, src){
+  document.getElementById('pd-main-img').src = src;
+  document.querySelectorAll('.pd-thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+function pickColor(el){ document.querySelectorAll('.color-swatch').forEach(s=>s.classList.remove('active')); el.classList.add('active'); }
+function changePdQty(delta){
+  window._pdQty = Math.max(1,(window._pdQty||1)+delta);
+  document.getElementById('pd-qty').textContent = window._pdQty;
+}
+function getPdCustomization(){
+  return {
+    name: document.getElementById('pd-name')?.value || '',
+    message: document.getElementById('pd-msg')?.value || ''
+  };
+}
+function addToCartFromPD(){
+  addToCart(currentProduct.id, window._pdQty||1, getPdCustomization());
+  showToast('Added to cart');
+  toggleCart(true);
+}
+function buyNow(){
+  addToCart(currentProduct.id, window._pdQty||1, getPdCustomization());
+  toggleCart(false);
+  go('checkout');
+}
+function quickAdd(id){
+  addToCart(id, 1, {});
+  showToast('Added to cart');
+  toggleCart(true);
+}
+
+/* ============ CART ============ */
+function addToCart(id, qty, custom){
+  const existing = cart.find(c=>c.id===id && JSON.stringify(c.custom||{})===JSON.stringify(custom||{}));
+  if(existing){ existing.qty += qty; } else { cart.push({id, qty, custom}); }
+  renderCartBadge(); renderCartDrawer();
+}
+function updateQty(idx, delta){
+  cart[idx].qty += delta;
+  if(cart[idx].qty<=0) cart.splice(idx,1);
+  renderCartBadge(); renderCartDrawer();
+}
+function removeFromCart(idx){ cart.splice(idx,1); renderCartBadge(); renderCartDrawer(); }
+function cartTotal(){ return cart.reduce((sum,c)=>{ const p=PRODUCTS.find(x=>x.id===c.id); return sum + (p?p.price*c.qty:0); },0); }
+function renderCartBadge(){
+  const count = cart.reduce((s,c)=>s+c.qty,0);
+  const badge = document.getElementById('cart-badge');
+  badge.textContent = count;
+  badge.style.display = count>0 ? 'flex':'none';
+}
+function renderCartDrawer(){
+  const itemsEl = document.getElementById('cart-items');
+  const footEl = document.getElementById('cart-foot');
+  if(cart.length===0){
+    itemsEl.innerHTML = `<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Your cart is empty</p></div>`;
+    footEl.innerHTML = `<button class="btn btn-primary" onclick="toggleCart(false);go('shop');">Start Shopping</button>`;
+    return;
+  }
+  itemsEl.innerHTML = cart.map((c,idx)=>{
+    const p = PRODUCTS.find(x=>x.id===c.id);
+    return `
+    <div class="cart-item">
+      <img src="${p.img[0]}" alt="${p.name}">
+      <div class="cart-item-info">
+        <div class="name">${p.name}</div>
+        <div class="meta">${c.custom && c.custom.name ? 'Name: '+c.custom.name : 'No personalization added'}</div>
+        <div class="qty-row">
+          <button class="qty-btn" onclick="updateQty(${idx},-1)">−</button>
+          <span>${c.qty}</span>
+          <button class="qty-btn" onclick="updateQty(${idx},1)">+</button>
+        </div>
+      </div>
+      <div>
+        <div class="cart-item-price">₹${p.price*c.qty}</div>
+        <div class="remove-item" onclick="removeFromCart(${idx})" style="cursor:pointer;">Remove</div>
+      </div>
+    </div>`;
+  }).join('');
+  footEl.innerHTML = `
+    <div class="cart-total-row"><span>Subtotal</span><span>₹${cartTotal()}</span></div>
+    <button class="btn btn-primary" onclick="toggleCart(false);go('checkout');">Checkout (Demo)</button>
+    <a class="btn btn-whatsapp" href="https://wa.me/919677324442?text=${encodeURIComponent('Hi! I want to order: '+cart.map(c=>{const p=PRODUCTS.find(x=>x.id===c.id);return p.name+' x'+c.qty;}).join(', '))}" target="_blank" rel="noopener">Order via WhatsApp</a>
+  `;
+}
+function toggleCart(open){
+  document.getElementById('cart-overlay').classList.toggle('open', open);
+  document.getElementById('cart-drawer').classList.toggle('open', open);
+}
+
+/* ============ CHECKOUT ============ */
+function renderCheckout(){
+  const grid = document.getElementById('checkout-grid');
+  if(cart.length===0){
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <h3>Your cart is empty</h3><p>Add a few gifts before checking out.</p>
+      <button class="btn btn-primary" onclick="go('shop')">Browse the shop</button>
+    </div>`;
+    return;
+  }
+  grid.innerHTML = `
+    <div class="checkout-form">
+      <div class="demo-banner"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>This is a demo checkout — no real payment is processed. On the live site this connects to a payment gateway or WhatsApp order confirmation.</div>
+      <h3>Delivery details</h3>
+      <div class="form-row"><input type="text" placeholder="First name"><input type="text" placeholder="Last name"></div>
+      <div class="form-row"><input type="text" placeholder="Phone number"><input type="text" placeholder="Email (optional)"></div>
+      <input type="text" placeholder="Delivery address" style="width:100%; margin-bottom:14px; padding:12px 14px; border:1px solid var(--line); border-radius:10px; font-family:inherit; background:var(--ivory);">
+      <div class="form-row"><input type="text" placeholder="City"><input type="text" placeholder="PIN code"></div>
+      <textarea rows="3" placeholder="Delivery notes (optional)" style="margin-top:6px;"></textarea>
+      <button class="btn btn-primary" style="margin-top:18px; width:100%;" onclick="placeOrder()">Place Order (Demo)</button>
+      <a class="btn btn-whatsapp" style="margin-top:10px; width:100%; justify-content:center;" href="https://wa.me/919677324442?text=${encodeURIComponent('Hi! I want to order: '+cart.map(c=>{const p=PRODUCTS.find(x=>x.id===c.id);return p.name+' x'+c.qty;}).join(', '))}" target="_blank" rel="noopener">Or confirm via WhatsApp</a>
+    </div>
+    <div class="checkout-summary">
+      <h3 style="margin-bottom:16px;">Order summary</h3>
+      ${cart.map(c=>{ const p=PRODUCTS.find(x=>x.id===c.id); return `<div class="summary-row"><span>${p.name} x${c.qty}</span><span>₹${p.price*c.qty}</span></div>`; }).join('')}
+      <div class="summary-row"><span>Delivery</span><span>Calculated on live site</span></div>
+      <div class="summary-row total"><span>Total</span><span>₹${cartTotal()}</span></div>
+    </div>
+  `;
+}
+function placeOrder(){
+  showToast('Demo order placed — this would confirm via WhatsApp/email on the live site');
+}
+
+/* ============ TOAST ============ */
+let toastTimer;
+function showToast(text){
+  const t = document.getElementById('toast');
+  document.getElementById('toast-text').textContent = text;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+/* ============ SCROLL EFFECTS ============ */
+window.addEventListener('scroll', ()=>{
+  document.getElementById('site-header').classList.toggle('scrolled', window.scrollY>10);
+});
+
+/* ============ INIT ============ */
+renderCategories();
+renderBestsellers();
+renderInsta();
+renderOccasions();
+renderShopChips();
+renderCartBadge();
+renderCartDrawer();
+</script>
+</body>
+</html>
